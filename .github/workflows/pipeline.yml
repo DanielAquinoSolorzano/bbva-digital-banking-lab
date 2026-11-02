@@ -33,13 +33,13 @@ jobs:
           SONAR_TOKEN: e910a6915934c695c1a9126864ff75096ca83a5b
           SONAR_ORG: danielaquino
           SONAR_PROJECT_KEY: danielaquino_bbva-digital-banking-lab
-        run:
+        run: |
           mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.organization=danielaquino \
             -Dsonar.projectKey=danielaquino_bbva-digital-banking-lab \
             -Dsonar.token=e910a6915934c695c1a9126864ff75096ca83a5b \
-            -Dsonar.coverage.jacoco.xmlReportPaths=app/target/site/jacoco/jacoco.xml
+            -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
 
   publish:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
